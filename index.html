@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#16c7c0">
+
+    <title>IPX Social</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ================= AUTENTICACIÓN ================= -->
+
+    <section id="authScreen" class="screen auth-screen">
+
+        <div class="auth-card">
+
+            <div class="logo">
+                IPX
+            </div>
+
+            <h1>Bienvenido a IPX</h1>
+
+            <p class="subtitle">
+                Conectate y chateá con tus amigos.
+            </p>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginBox">
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Correo electrónico"
+                    autocomplete="email"
+                >
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Contraseña"
+                    autocomplete="current-password"
+                >
+
+                <button
+                    id="loginBtn"
+                    class="primary-btn"
+                >
+                    Iniciar sesión
+                </button>
+
+                <button
+                    id="forgotBtn"
+                    class="link-btn"
+                >
+                    ¿Olvidaste tu contraseña?
+                </button>
+
+                <div class="separator">
+                    <span>o</span>
+                </div>
+
+                <button
+                    id="showRegisterBtn"
+                    class="secondary-btn"
+                >
+                    Crear cuenta nueva
+                </button>
+
+            </div>
+
+
+            <!-- REGISTRO -->
+
+            <div id="registerBox" class="hidden">
+
+                <h2>Crear cuenta</h2>
+
+                <p class="form-description">
+                    Completá tus datos para crear tu cuenta de IPX.
+                </p>
+
+                <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Nombre completo"
+                    autocomplete="name"
+                >
+
+                <input
+                    id="registerUsername"
+                    type="text"
+                    placeholder="Nombre de usuario"
+                    autocomplete="username"
+                >
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Correo electrónico"
+                    autocomplete="email"
+                >
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Contraseña"
+                    autocomplete="new-password"
+                >
+
+                <input
+                    id="registerPassword2"
+                    type="password"
+                    placeholder="Repetir contraseña"
+                    autocomplete="new-password"
+                >
+
+                <label class="input-label">
+                    Fecha de nacimiento
+                </label>
+
+                <input
+                    id="registerBirth"
+                    type="date"
+                >
+
+                <label class="input-label">
+                    Género
+                </label>
+
+                <select id="registerGender">
+
+                    <option value="">
+                        Seleccionar género
+                    </option>
+
+                    <option value="masculino">
+                        Masculino
+                    </option>
+
+                    <option value="femenino">
+                        Femenino
+                    </option>
+
+                    <option value="otro">
+                        Otro
+                    </option>
+
+                    <option value="prefiero_no_decirlo">
+                        Prefiero no decirlo
+                    </option>
+
+                </select>
+
+                <button
+                    id="registerBtn"
+                    class="primary-btn"
+                >
+                    Crear cuenta
+                </button>
+
+                <button
+                    id="backLoginBtn"
+                    class="link-btn"
+                >
+                    Ya tengo una cuenta
+                </button>
+
+            </div>
+
+
+            <!-- RECUPERAR -->
+
+            <div id="forgotBox" class="hidden">
+
+                <h2>Recuperar cuenta</h2>
+
+                <p class="form-description">
+                    Escribí tu correo y te enviaremos un enlace
+                    para restablecer tu contraseña.
+                </p>
+
+                <input
+                    id="forgotEmail"
+                    type="email"
+                    placeholder="Correo electrónico"
+                    autocomplete="email"
+                >
+
+                <button
+                    id="sendResetBtn"
+                    class="primary-btn"
+                >
+                    Enviar enlace
+                </button>
+
+                <button
+                    id="backForgotBtn"
+                    class="link-btn"
+                >
+                    Volver
+                </button>
+
+            </div>
+
+
+            <div
+                id="authMessage"
+                class="message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VERIFICACIÓN ================= -->
+
+    <section
+        id="verificationScreen"
+        class="screen verification-screen hidden"
+    >
+
+        <div class="verification-card">
+
+            <div class="verification-icon">
+                ✉️
+            </div>
+
+            <h2>Verificá tu correo</h2>
+
+            <p>
+                Te enviamos un correo de verificación.
+                Confirmá tu dirección para continuar usando IPX.
+            </p>
+
+            <button
+                id="checkVerificationBtn"
+                class="primary-btn"
+            >
+                Comprobar verificación
+            </button>
+
+            <button
+                id="resendVerificationBtn"
+                class="secondary-btn"
+            >
+                Reenviar correo
+            </button>
+
+            <button
+                id="logoutVerificationBtn"
+                class="link-btn"
+            >
+                Cerrar sesión
+            </button>
+
+            <div
+                id="verificationMessage"
+                class="message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= APLICACIÓN ================= -->
+
+    <section
+        id="mainScreen"
+        class="main-screen hidden"
+    >
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="brand-small">
+                    IPX
+                </div>
+
+                <button
+                    id="newChatBtn"
+                    class="round-btn"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="search-container">
+
+                <input
+                    id="searchUser"
+                    type="text"
+                    placeholder="Buscar personas..."
+                >
+
+            </div>
+
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+
+            <div class="chat-title">
+                Chats
+            </div>
+
+
+            <div
+                id="chatList"
+                class="chat-list"
+            >
+
+                <div class="empty-chat">
+                    No tenés conversaciones todavía.
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-profile">
+
+                <div
+                    class="avatar"
+                    id="myAvatar"
+                >
+                    U
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="myName">
+                        Usuario
+                    </strong>
+
+                    <small id="myUsername">
+                        @usuario
+                    </small>
+
+                </div>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    ↪
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CHAT -->
+
+        <main class="chat-area">
+
+            <header class="chat-header">
+
+                <div
+                    id="chatUserAvatar"
+                    class="avatar"
+                >
+                    ?
+                </div>
+
+                <div class="chat-user-info">
+
+                    <strong id="chatUserName">
+                        Seleccioná un chat
+                    </strong>
+
+                    <small id="chatUserStatus">
+                        IPX Messenger
+                    </small>
+
+                </div>
+
+                <div class="chat-actions">
+
+                    <button
+                        id="deleteChatBtn"
+                        title="Eliminar conversación"
+                    >
+                        🗑
+                    </button>
+
+                    <button
+                        id="blockUserBtn"
+                        title="Bloquear"
+                    >
+                        🚫
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <div
+                id="messagesBox"
+                class="messages-box"
+            >
+
+                <div class="welcome-chat">
+
+                    <div class="welcome-logo">
+                        IPX
+                    </div>
+
+                    <h2>
+                        Bienvenido a IPX
+                    </h2>
+
+                    <p>
+                        Seleccioná una conversación
+                        para comenzar a chatear.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="typingIndicator"
+                class="typing-indicator"
+            ></div>
+
+
+            <footer class="message-composer">
+
+                <button
+                    id="emojiBtn"
+                    class="composer-btn"
+                >
+                    😊
+                </button>
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Escribí un mensaje..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="sendBtn"
+                    class="send-btn"
+                >
+                    ➤
+                </button>
+
+            </footer>
+
+        </main>
+
+    </section>
+
+</div>
+
+
+<script
+    type="module"
+    src="script.js"
+></script>
+
+</body>
+</html>
