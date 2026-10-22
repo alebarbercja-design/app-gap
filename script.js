@@ -900,20 +900,23 @@ function crearChatId(
 
 async function abrirChat(user) {
 
-    if (!currentUser)
-        return;
+    if (!currentUser || !user || !user.uid) {
+    console.error("Usuario no válido:", user);
+    return;
+}
+
+currentChatUser = user;
+
+currentChatId = crearChatId(
+    currentUser.uid,
+    user.uid
+);
+
+document.getElementById("mainScreen")
+    .classList.add("chat-open");
 
 
-    currentChatUser =
-        user;
-
-
-    currentChatId =
-        crearChatId(
-            currentUser.uid,
-            user.uid
-        );
-
+   
 
     chatUserName.textContent =
         user.nombre ||
@@ -1852,24 +1855,70 @@ document
 
 
 /* =====================================================
-   EMOJI
+   SELECTOR DE EMOJIS IPX MESSENGER
    ===================================================== */
 
-document
-    .getElementById("emojiBtn")
-    .addEventListener(
-        "click",
-        () => {
+const emojiBtn = document.getElementById("emojiBtn");
+const emojiPicker = document.getElementById("emojiPicker");
+const emojiContainer = document.querySelector(".emoji-picker-container");
 
-            messageInput.value +=
-                " 😊";
+// Abrir y cerrar el menú
+emojiBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
 
-            messageInput.focus();
+    emojiPicker.classList.toggle("hidden");
+});
 
-        }
-    );
+// Insertar el emoji seleccionado en el mensaje
+emojiPicker.querySelectorAll("span").forEach((emoji) => {
+    emoji.addEventListener("click", () => {
+        const emojiText = emoji.textContent;
+        const start = messageInput.selectionStart;
+        const end = messageInput.selectionEnd;
+        const text = messageInput.value;
+
+        messageInput.value =
+            text.slice(0, start) +
+            emojiText +
+            text.slice(end);
+
+        // Colocar el cursor después del emoji
+        const newPosition = start + emojiText.length;
+
+        messageInput.focus();
+        messageInput.setSelectionRange(
+            newPosition,
+            newPosition
+        );
+
+        // Mantener abierto el menú para elegir más emojis
+        emojiPicker.classList.remove("hidden");
+    });
+});
+
+// Cerrar el menú al tocar fuera de él
+document.addEventListener("click", (event) => {
+    if (!emojiContainer.contains(event.target)) {
+        emojiPicker.classList.add("hidden");
+    }
+});
+
+// Cerrar con la tecla Escape
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        emojiPicker.classList.add("hidden");
+    }
+});
+
+console.log("Selector de emojis IPX activado.");
 
 
-console.log(
-    "IPX iniciado correctamente."
-);
+/* ================= VOLVER A LOS CHATS ================= */
+
+const backToChatsBtn =
+    document.getElementById("backToChatsBtn");
+
+backToChatsBtn.addEventListener("click", () => {
+    document.getElementById("mainScreen")
+        .classList.remove("chat-open");
+});
