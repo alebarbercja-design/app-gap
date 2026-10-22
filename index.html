@@ -25,7 +25,7 @@
         <div class="auth-card">
 
             <div class="logo">
-                IPX
+            <img src="assets/img_1.jpg.jpg" alt="IPX messenger">
             </div>
 
             <h1>Bienvenido a IPX</h1>
@@ -290,7 +290,7 @@
             <div class="sidebar-top">
 
                 <div class="brand-small">
-                    IPX
+                    <img src="assets/img_1.jpg.jpg" alt="IPX messenger">
                 </div>
 
                 <button
@@ -449,28 +449,65 @@
 
             <footer class="message-composer">
 
-                <button
-                    id="emojiBtn"
-                    class="composer-btn"
-                >
-                    😊
-                </button>
+    <!-- Envolvemos el botón y el menú dentro de este contenedor relativo -->
+    <div class="emoji-picker-container">
+        <button id="emojiBtn" class="composer-btn" type="button">😊</button>
+        
+        <!-- Menú flotante de emojis (inicialmente oculto) -->
+        <div id="emojiPicker" class="emoji-picker hidden">
+            <span>😀</span><span>😃</span><span>😄</span><span>😁</span>
+            <span>😆</span><span>😅</span><span>😂</span><span>🤣</span>
+            <span>😊</span><span>😇</span><span>🙂</span><span>🙃</span>
+            <span>😉</span><span>😌</span><span>😍</span><span>🥰</span>
+            <span>😘</span><span>😗</span><span>😙</span><span>😚</span>
+            <span>😋</span><span>😛</span><span>😝</span><span>😜</span>
+            <span>🤪</span><span>🤨</span><span>🧐</span><span>🤓</span>
+            <span>😎</span><span>🥸</span><span>🤩</span><span>🥳</span>
+            <span>😏</span><span>😒</span><span>😞</span><span>😔</span>
+            <span>😟</span><span>😕</span><span>🙁</span><span>☹️</span>
+            <span>😮</span><span>😯</span><span>😲</span><span>😳</span>
+            <span>🥺</span><span>😦</span><span>😧</span><span>😨</span>
+            <span>😰</span><span>😥</span><span>😢</span><span>😭</span>
+            <span>😱</span><span>😖</span><span>😣</span><span>😞</span>
+            <span>😓</span><span>😩</span><span>😫</span><span>🥱</span>
+            <span>😤</span><span>😡</span><span>😠</span><span>🤬</span>
+            <span>🤯</span><span>😳</span><span>🥵</span><span>🥶</span>
+            <span>😶</span><span>🫥</span><span>😐</span><span>😑</span>
+            <span>🫣</span><span>🤭</span><span>🤫</span><span>🫠</span>
+            <span>🤥</span><span>🤔</span><span>🫢</span><span>👋</span>
+            <span>👌</span><span>✌️</span><span>🤞</span><span>🤟</span>
+            <span>🤘</span><span>🤙</span><span>👈</span><span>👉</span>
+            <span>👆</span><span>🖕</span><span>👇</span><span>☝️</span>
+            <span>👍</span><span>👎</span><span>✊</span><span>👊</span>
+            <span>🤛</span><span>🤜</span><span>👏</span><span>🙌</span>
+            <span>👐</span><span>🤲</span><span>🤝</span><span>🙏</span>
+            <span>✍️</span><span>💅</span><span>🤳</span><span>💪</span>
+            <span>🦾</span><span>🦿</span><span>🦵</span><span>🦶</span>
+            <span>👂</span><span>🦻</span><span>👃</span><span>🧠</span>
+            <span>🫀</span><span>🫁</span><span>🦷</span><span>🦴</span>
+            <span>👀</span><span>👁️</span><span>👅</span><span>👄</span>
+            <span>💋</span><span>🩸</span><span>❤️</span><span>🩷</span>
+            <span>🧡</span><span>💛</span><span>💚</span><span>🩵</span>
+            <span>💙</span><span>💜</span><span>🖤</span><span>🩶</span>
+            <span>🤍</span><span>🤎</span><span>🔥</span><span>✨</span>
+        </div>
+    </div>
 
-                <input
-                    id="messageInput"
-                    type="text"
-                    placeholder="Escribí un mensaje..."
-                    autocomplete="off"
-                >
+    <input
+        id="messageInput"
+        type="text"
+        placeholder="Escribí un mensaje..."
+        autocomplete="off"
+    >
 
-                <button
-                    id="sendBtn"
-                    class="send-btn"
-                >
-                    ➤
-                </button>
+    <button
+        id="sendBtn"
+        class="send-btn"
+    >
+        ➤
+    </button>
 
-            </footer>
+</footer>
 
         </main>
 

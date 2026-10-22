@@ -126,35 +126,29 @@ button {
 }
 
 
-/* LOGO */
+/* LOGO (CORREGIDO PARA IMAGEN) */
 
 .logo {
     width: 75px;
     height: 75px;
 
     margin: 0 auto;
-
     border-radius: 22px;
+    overflow: hidden; /* Evita que la imagen se salga de las esquinas redondeadas */
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: white;
-
-    font-size: 26px;
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--turquoise),
-            var(--purple)
-        );
-
     box-shadow:
         0 10px 25px
-        rgba(83,90,220,.3);
+        rgba(83,90,220,.2);
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen perfectamente al contenedor */
 }
 
 
@@ -432,28 +426,23 @@ button {
         0 18px;
 }
 
+/* BRAND SMALL (CORREGIDO PARA IMAGEN) */
+
 .brand-small {
     width: 48px;
     height: 48px;
-
     border-radius: 14px;
+    overflow: hidden;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
+}
 
-    color: white;
-
-    font-weight: 900;
-    font-size: 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--turquoise),
-            var(--purple)
-        );
+.brand-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .round-btn {
@@ -797,326 +786,134 @@ button {
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    color: white;
-
-    font-size: 25px;
-    font-weight: 900;
-
-    margin-bottom: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--turquoise),
-            var(--purple)
-        );
+    .auth-card {
+width: 100%;
+margin:
+5px auto
+20px;
+padding:
+25px 18px;
+border-radius: 20px;
 }
-
-.welcome-chat h2 {
-    color: var(--text);
-
-    margin-bottom: 8px;
+/* Ajuste responsivo del logo con imagen */
+.logo {
+width: 65px;
+height: 65px;
 }
-
-
-/* MENSAJE */
-
-.message-row {
-    display: flex;
-
-    margin-bottom: 10px;
+.auth-card h1 {
+font-size: 24px;
 }
-
-.message-row.me {
-    justify-content: flex-end;
+.sidebar {
+width: 65px;
 }
-
-.message-bubble {
-    max-width:
-        min(
-            70%,
-            600px
-        );
-
-    padding:
-        10px 13px;
-
-    border-radius: 17px;
-
-    background: white;
-
-    box-shadow:
-        0 2px 5px
-        rgba(0,0,0,.05);
+.messages-box {
+padding:
+15px 10px;
 }
-
-.message-row.me
-.message-bubble {
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--turquoise),
-            var(--purple)
-        );
-
-    border-bottom-right-radius: 4px;
-}
-
-.message-row.other
-.message-bubble {
-    border-bottom-left-radius: 4px;
-}
-
-.message-text {
-    white-space: pre-wrap;
-
-    word-break: break-word;
-}
-
-.message-meta {
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 5px;
-
-    margin-top: 5px;
-
-    font-size: 10px;
-
-    opacity: .7;
-}
-
-.typing-indicator {
-    min-height: 22px;
-
-    padding-left: 25px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* COMPOSITOR */
-
 .message-composer {
-    min-height: 70px;
-
-    flex-shrink: 0;
-
-    padding:
-        10px 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    background: white;
-
-    border-top:
-        1px solid
-        var(--border);
+padding: 8px;
 }
-
-.message-composer input {
-    flex: 1;
-
-    min-width: 0;
-
-    height: 48px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 15px;
-
-    padding:
-        0 15px;
-
-    outline: none;
-
-    background: #f6f8fc;
-}
-
-.composer-btn,
-.send-btn {
-    width: 45px;
-    height: 45px;
-
-    flex-shrink: 0;
-
-    border-radius: 13px;
-}
-
 .composer-btn {
-    background: #f0f2f7;
+display: none;
 }
-
+.message-composer input {
+height: 45px;
+}
 .send-btn {
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--turquoise),
-            var(--purple)
-        );
+width: 43px;
+height: 43px;
 }
-
-
-/* ================= CELULAR ================= */
-
-@media (max-width: 750px) {
-
-    /*
-       La aplicación de chat ocupa toda
-       la pantalla horizontalmente.
-    */
-
-    .sidebar {
-        width: 78px;
-    }
-
-    .sidebar
-    .search-container,
-    .sidebar
-    .chat-title,
-    .sidebar
-    .profile-info,
-    .sidebar
-    .logout-btn,
-    .chat-info {
-        display: none;
-    }
-
-    .sidebar-top {
-        justify-content: center;
-    }
-
-    .chat-item {
-        justify-content: center;
-
-        padding:
-            13px 5px;
-    }
-
-    .sidebar-profile {
-        justify-content: center;
-    }
-
-    .message-bubble {
-        max-width: 85%;
-    }
-
-    .chat-actions {
-        display: none;
-    }
 }
-
-
-/* ================= CELULARES PEQUEÑOS ================= */
-
-@media (max-width: 500px) {
-
-    .auth-screen {
-        align-items: flex-start;
-
-        padding:
-            15px 10px
-            calc(
-                25px +
-                env(safe-area-inset-bottom)
-            );
-    }
-
-    .auth-card {
-        width: 100%;
-
-        margin:
-            5px auto
-            20px;
-
-        padding:
-            25px 18px;
-
-        border-radius: 20px;
-    }
-
-    .logo {
-        width: 65px;
-        height: 65px;
-
-        font-size: 23px;
-    }
-
-    .auth-card h1 {
-        font-size: 24px;
-    }
-
-    .sidebar {
-        width: 65px;
-    }
-
-    .messages-box {
-        padding:
-            15px 10px;
-    }
-
-    .message-composer {
-        padding: 8px;
-    }
-
-    .composer-btn {
-        display: none;
-    }
-
-    .message-composer input {
-        height: 45px;
-    }
-
-    .send-btn {
-        width: 43px;
-        height: 43px;
-    }
-}
-
-
 /* ================= PANTALLAS MUY BAJAS ================= */
-
 @media (max-height: 650px) {
+.auth-screen {
+align-items: flex-start;
+padding-top: 10px;
+}
+.auth-card {
+margin-top: 0;
+margin-bottom: 20px;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+/* Ajuste responsivo extra para pantallas bajas */
+.logo {
+width: 55px;
+height: 55px;
+}
+.auth-card h1 {
+margin-top: 10px;
+}
+.subtitle {
+margin-bottom: 15px;
+}
+}
 
-    .auth-screen {
-        align-items: flex-start;
 
-        padding-top: 10px;
+/* ================= MENÚ SELECTOR DE EMOJIS ================= */
+
+.emoji-picker-container {
+    position: relative;
+    display: inline-block;
+}
+
+.emoji-picker {
+    position: absolute;
+    bottom: 60px; /* Se despliega hacia arriba del botón */
+    left: 0;
+    width: 280px;
+    height: 200px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas de emojis */
+    gap: 8px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* Ocultar scrollbar en navegadores basados en Webkit (opcional) */
+.emoji-picker::-webkit-scrollbar {
+    width: 6px;
+}
+.emoji-picker::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.emoji-picker span {
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.15s, transform 0.1s;
+    user-select: none;
+}
+
+.emoji-picker span:hover {
+    background: #f1f5f9;
+    transform: scale(1.15);
+}
+
+.emoji-picker span:active {
+    transform: scale(0.95);
+}
+
+/* Ajustes adaptables para pantallas celulares muy chicas */
+@media (max-width: 500px) {
+    .emoji-picker-container {
+        position: static; /* Permite que el picker se posicione respecto al footer */
     }
-
-    .auth-card {
-        margin-top: 0;
-        margin-bottom: 20px;
-
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .logo {
-        width: 55px;
-        height: 55px;
-    }
-
-    .auth-card h1 {
-        margin-top: 10px;
-    }
-
-    .subtitle {
-        margin-bottom: 15px;
+    .emoji-picker {
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        bottom: 65px;
+        grid-template-columns: repeat(8, 1fr); /* Más columnas en horizontal de celular */
     }
 }
